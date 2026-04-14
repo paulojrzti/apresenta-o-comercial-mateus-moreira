@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial - Mateus Moreira</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f3ee;
+    --green: #b8f564;
+    --gray: #1a1a1a;
+    --gray2: #2a2a2a;
+    --muted: #666;
+    --border: rgba(255,255,255,0.08);
+    --pad-h: clamp(24px, 6vw, 80px);
+    --pad-v: clamp(72px, 8vh, 96px);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* SLIDE BASE */
+  .slide {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--pad-v) var(--pad-h);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* meta labels */
+  .slide-num {
+    position: absolute;
+    top: 28px;
+    right: var(--pad-h);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .brand-tag {
+    position: absolute;
+    top: 28px;
+    left: var(--pad-h);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* TYPOGRAPHY */
+  .display {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .body-text {
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.7;
+    color: rgba(245,243,238,0.65);
+    font-weight: 300;
+  }
+
+  /* SLIDE 1 */
+  #s1 { background: var(--black); }
+
+  #s1 .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(184,245,100,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,245,100,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  #s1 .blob {
+    position: absolute;
+    right: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,245,100,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  #s1 .eyebrow {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 24px;
+  }
+
+  #s1 .title {
+    font-size: clamp(40px, 8vw, 88px);
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
+  #s1 .subtitle {
+    font-size: clamp(14px, 2.2vw, 18px);
+    color: rgba(245,243,238,0.5);
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  #s1 .to-block {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  #s1 .to-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'Syne', sans-serif;
+  }
+
+  #s1 .to-name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(18px, 3vw, 22px);
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  #s1 .scroll-hint {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'Syne', sans-serif;
+    animation: bounce 2s ease-in-out infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* SLIDE 2 */
+  #s2 { background: var(--gray); }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .problem-card {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .problem-card .p-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .problem-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .problem-card p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(245,243,238,0.5);
+    font-weight: 300;
+  }
+
+  /* SLIDE 3 */
+  #s3 { background: var(--black); }
+
+  .solution-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .blog-card {
+    border-radius: 20px;
+    padding: clamp(24px, 4vw, 36px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .blog-card.finance {
+    background: linear-gradient(135deg, #0d1f0d 0%, #0a2210 100%);
+    border: 1px solid rgba(184,245,100,0.2);
+  }
+
+  .blog-card.fitness {
+    background: linear-gradient(135deg, #0f1520 0%, #0a1228 100%);
+    border: 1px solid rgba(100,160,245,0.2);
+  }
+
+  .blog-card .card-tag {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .finance .card-tag { background: rgba(184,245,100,0.15); color: var(--green); }
+  .fitness .card-tag { background: rgba(100,160,245,0.15); color: #64a0f5; }
+
+  .blog-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(18px, 3vw, 22px);
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .blog-card .desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(245,243,238,0.55);
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+  .feature-list li {
+    font-size: 13px;
+    color: rgba(245,243,238,0.7);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 300;
+  }
+
+  .feature-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .finance .feature-list li::before { background: var(--green); }
+  .fitness .feature-list li::before { background: #64a0f5; }
+
+  /* SLIDE 4 */
+  #s4 { background: var(--gray); }
+
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .diff-card {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: border-color 0.3s;
+  }
+
+  .diff-card:hover { border-color: rgba(184,245,100,0.3); }
+
+  .diff-card .d-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .diff-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--white);
+  }
+
+  .diff-card p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(245,243,238,0.45);
+    font-weight: 300;
+  }
+
+  /* SLIDE 5 — TABLE */
+  #s5 { background: var(--black); }
+
+  /* wrapper scrolls horizontally on mobile, clips on desktop */
+  .compare-wrapper {
+    margin-top: 32px;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+  }
+
+  .compare-wrapper table {
+    width: 100%;
+    min-width: 560px; /* forces scroll before content squishes */
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .compare-wrapper thead tr { background: var(--gray2); }
+
+  .compare-wrapper th {
+    padding: 14px 16px;
+    text-align: left;
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .compare-wrapper th:first-child { width: 34%; }
+  .compare-wrapper th:nth-child(2) { width: 33%; }
+  .compare-wrapper th:nth-child(3) { width: 33%; }
+
+  .compare-wrapper th.highlight { color: var(--green); }
+
+  .compare-wrapper td {
+    padding: 13px 16px;
+    font-size: 13px;
+    font-weight: 300;
+    border-top: 1px solid var(--border);
+    color: rgba(245,243,238,0.7);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+
+  .compare-wrapper td:first-child { color: rgba(245,243,238,0.45); }
+  .compare-wrapper td.good { color: var(--green); font-weight: 500; }
+  .compare-wrapper td.bad { color: #ff6b6b; }
+  .compare-wrapper tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* scroll hint on mobile */
+  .scroll-hint-table {
+    display: none;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-top: 10px;
+    text-align: right;
+    font-family: 'Syne', sans-serif;
+  }
+
+  /* SLIDE 6 */
+  #s6 { background: var(--gray); }
+
+  .roadmap {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    position: relative;
+  }
+
+  .roadmap::before {
+    content: '';
+    position: absolute;
+    left: 22px; top: 12px; bottom: 12px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .rm-step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 18px 0;
+  }
+
+  .rm-dot {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--black);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 11px; font-weight: 700;
+    color: var(--muted);
+    flex-shrink: 0;
+    position: relative; z-index: 1;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  .rm-step.active .rm-dot {
+    border-color: var(--green);
+    color: var(--green);
+    background: rgba(184,245,100,0.08);
+  }
+
+  .rm-period {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    font-family: 'Syne', sans-serif;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .rm-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px; font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .rm-content p {
+    font-size: 13px; line-height: 1.6;
+    color: rgba(245,243,238,0.45);
+    font-weight: 300;
+  }
+
+  /* SLIDE 7 */
+  #s7 { background: var(--black); }
+
+  .invest-wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 32px;
+    margin-top: 32px;
+    align-items: start;
+  }
+
+  .invest-main {
+    background: linear-gradient(135deg, #111a0f 0%, #0d1a0a 100%);
+    border: 1px solid rgba(184,245,100,0.25);
+    border-radius: 20px;
+    padding: clamp(24px, 4vw, 36px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .invest-main::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(184,245,100,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .invest-tag {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: rgba(184,245,100,0.1);
+    padding: 4px 12px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .price-big {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(36px, 6vw, 60px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .price-label {
+    font-size: 13px;
+    color: rgba(245,243,238,0.5);
+    font-weight: 300;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .invest-includes { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .invest-includes li {
+    display: flex; align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(245,243,238,0.75);
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  .invest-includes li .check {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: rgba(184,245,100,0.15);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: var(--green);
+    font-size: 10px;
+    margin-top: 1px;
+  }
+
+  .optional-card {
+    background: var(--gray2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: clamp(20px, 3vw, 32px);
+  }
+
+  .opt-tag {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: rgba(255,255,255,0.05);
+    padding: 4px 12px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .opt-price {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .opt-period {
+    font-size: 13px;
+    color: rgba(245,243,238,0.4);
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  .opt-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .opt-list li {
+    font-size: 13px;
+    color: rgba(245,243,238,0.55);
+    font-weight: 300;
+    display: flex; align-items: flex-start; gap: 10px;
+    line-height: 1.4;
+  }
+
+  .opt-list li::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* SLIDE 8 */
+  #s8 {
+    background: var(--black);
+    text-align: center;
+    align-items: center;
+  }
+
+  #s8 .close-blob {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,245,100,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  #s8 .big-cta {
+    font-size: clamp(32px, 7vw, 72px);
+    max-width: 680px;
+    margin: 0 auto 28px;
+    line-height: 1.05;
+    word-break: break-word;
+  }
+
+  #s8 .cta-sub {
+    font-size: clamp(14px, 2vw, 17px);
+    color: rgba(245,243,238,0.5);
+    max-width: 400px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  #s8 .contact-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--gray2);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 12px 24px;
+  }
+
+  #s8 .contact-box span {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px; font-weight: 600;
+    color: var(--white);
+  }
+
+  #s8 .contact-box .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+  #s8 .footer-sig {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* NAV */
+  .nav {
+    position: fixed;
+    right: 20px; top: 50%;
+    transform: translateY(-50%);
+    display: flex; flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+  }
+
+  .nav-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(245,243,238,0.2);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    border: none; padding: 0;
+  }
+
+  .nav-dot.active { background: var(--green); transform: scale(1.4); }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .fade-in:nth-child(2) { transition-delay: 0.1s; }
+  .fade-in:nth-child(3) { transition-delay: 0.2s; }
+  .fade-in:nth-child(4) { transition-delay: 0.3s; }
+  .fade-in:nth-child(5) { transition-delay: 0.4s; }
+
+  /* MOBILE OVERRIDES — single breakpoint, clean */
+  @media (max-width: 640px) {
+    :root { --pad-h: 24px; --pad-v: 80px; }
+
+    .nav { display: none; }
+
+    /* slide 1: title overflow fix */
+    #s1 .title { font-size: clamp(36px, 11vw, 52px); }
+
+    /* slide 2 */
+    .problem-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    /* slide 3: title overflow fix */
+    .solution-wrap { grid-template-columns: 1fr; gap: 16px; }
+
+    /* slide 4 */
+    .diff-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    /* slide 5: show scroll hint */
+    .scroll-hint-table { display: block; }
+
+    /* slide 6 */
+    .rm-step { gap: 16px; }
+    .rm-dot { width: 36px; height: 36px; font-size: 10px; }
+    .roadmap::before { left: 18px; }
+
+    /* slide 7 */
+    .invest-wrap { grid-template-columns: 1fr; gap: 20px; }
+
+    /* slide 8 */
+    #s8 .big-cta { font-size: clamp(28px, 9vw, 44px); }
+    #s8 .footer-sig { font-size: 9px; width: 90%; text-align: center; }
+  }
+
+  @media (max-width: 400px) {
+    .diff-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV DOTS -->
+<nav class="nav" aria-label="Navegação por seções">
+  <button class="nav-dot active" onclick="scrollTo(0)" title="Capa"></button>
+  <button class="nav-dot" onclick="scrollToSlide('s2')" title="O Problema"></button>
+  <button class="nav-dot" onclick="scrollToSlide('s3')" title="A Solução"></button>
+  <button class="nav-dot" onclick="scrollToSlide('s4')" title="Diferenciais"></button>
+  <button class="nav-dot" onclick="scrollToSlide('s5')" title="Comparativo"></button>
+  <button class="nav-dot" onclick="scrollToSlide('s6')" title="Roadmap"></button>
+  <button class="nav-dot" onclick="scrollToSlide('s7')" title="Investimento"></button>
+  <button class="nav-dot" onclick="scrollToSlide('s8')" title="Próximo Passo"></button>
+</nav>
+
+<!-- ── SLIDE 1: CAPA ── -->
+<section class="slide" id="s1">
+  <div class="grid-bg"></div>
+  <div class="blob"></div>
+  <span class="brand-tag">@seocompaulo</span>
+
+  <div style="position:relative; z-index:1; max-width: 860px;">
+    <p class="eyebrow fade-in">Proposta Comercial 2026</p>
+    <h1 class="display title fade-in">Dois Ativos<br><span style="color: var(--green);">Digitais</span><br>que geram resultado.</h1>
+    <p class="subtitle fade-in">Blogs de alta performance em Finanças e Fitness, construídos para ranquear, monetizar e valorizar ao longo do tempo.</p>
+    <div class="to-block fade-in">
+      <span class="to-label">Preparado para</span>
+      <span class="to-name">Mateus Moreira</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Role para ver</span>
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- ── SLIDE 2: O PROBLEMA ── -->
+<section class="slide" id="s2">
+  <span class="brand-tag">@seocompaulo</span>
+  <span class="slide-num">02 / 08</span>
+
+  <div style="max-width: 900px;">
+    <span class="label fade-in">O cenário atual</span>
+    <h2 class="display fade-in" style="font-size: clamp(36px, 5vw, 60px); margin-bottom: 12px;">Por que a maioria<br>dos blogs <span style="color:rgba(245,243,238,0.3);">falha</span>.</h2>
+    <p class="body-text fade-in" style="max-width: 520px; margin-bottom: 0;">Sites lentos, sem estratégia de conteúdo e sem estrutura técnica nunca chegam na primeira página do Google e não geram nenhuma receita previsível.</p>
+
+    <div class="problem-grid fade-in">
+      <div class="problem-card">
+        <span class="p-icon">🐢</span>
+        <h3>WordPress é lento por padrão</h3>
+        <p>Plugins, PHP dinâmico e JS pesado comprometem Core Web Vitals. O Google penaliza sites lentos nos leilões de anúncio, reduzindo o RPM real.</p>
+      </div>
+      <div class="problem-card">
+        <span class="p-icon">🗺️</span>
+        <h3>Sem estrutura, sem autoridade</h3>
+        <p>Artigos publicados sem estratégia de silos e linkagem interna nunca constroem autoridade temática e não competem por keywords de volume real.</p>
+      </div>
+      <div class="problem-card">
+        <span class="p-icon">🌍</span>
+        <h3>Mercado nacional limita o CPM</h3>
+        <p>Blogs apenas em PT-BR ficam presos ao CPM brasileiro. O mercado americano paga entre 5x e 10x mais por anúncio, e fica acessível com a estratégia certa.</p>
+      </div>
+      <div class="problem-card">
+        <span class="p-icon">⏳</span>
+        <h3>Escala manual não existe</h3>
+        <p>Sem um workflow de produção de conteúdo estruturado, o blog nunca atinge o volume de artigos necessário para crescer de forma consistente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SLIDE 3: SOLUÇÃO ── -->
+<section class="slide" id="s3">
+  <span class="brand-tag">@seocompaulo</span>
+  <span class="slide-num">03 / 08</span>
+
+  <div style="max-width: 960px; width: 100%;">
+    <span class="label fade-in">A solução</span>
+    <h2 class="display fade-in" style="font-size: clamp(36px, 5vw, 58px); margin-bottom: 12px;">Dois blogs. Uma<br>infraestrutura <span style="color: var(--green);">sólida</span>.</h2>
+    <p class="body-text fade-in" style="max-width: 500px;">Construídos com a tecnologia certa: Astro, estático e rápido, com estratégia de conteúdo bilíngue para capturar os dois mercados.</p>
+
+    <div class="solution-wrap fade-in">
+      <div class="blog-card finance">
+        <span class="card-tag">Blog 01</span>
+        <h3>Finanças Pessoais<br>& Investimentos</h3>
+        <p class="desc">Conteúdo de autoridade para quem quer entender onde colocar o dinheiro: Tesouro Direto, renda variável, controle financeiro e mais.</p>
+        <ul class="feature-list">
+          <li>Silos: Investimentos · Controle · Renda</li>
+          <li>Keywords de alta intenção de pesquisa</li>
+          <li>Afiliados: corretoras e plataformas financeiras</li>
+          <li>Versão PT-BR + EN para mercado global</li>
+        </ul>
+      </div>
+      <div class="blog-card fitness">
+        <span class="card-tag">Blog 02</span>
+        <h3>Fitness<br>& Saúde</h3>
+        <p class="desc">Conteúdo baseado em evidência para quem quer resultados reais: treino, nutrição e recuperação, com linguagem acessível e técnica.</p>
+        <ul class="feature-list">
+          <li>Silos: Treino · Nutrição · Recuperação</li>
+          <li>Alto volume de pesquisa no Brasil e nos EUA</li>
+          <li>Afiliados: suplementos, apps e equipamentos</li>
+          <li>Versão PT-BR + EN para mercado global</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SLIDE 4: DIFERENCIAIS ── -->
+<section class="slide" id="s4">
+  <span class="brand-tag">@seocompaulo</span>
+  <span class="slide-num">04 / 08</span>
+
+  <div style="max-width: 960px; width: 100%;">
+    <span class="label fade-in">Por que funciona</span>
+    <h2 class="display fade-in" style="font-size: clamp(36px, 5vw, 58px); margin-bottom: 12px;">O que faz a<br>diferença <span style="color: var(--green);">técnica</span>.</h2>
+
+    <div class="diff-grid fade-in">
+      <div class="diff-card">
+        <div class="d-num">100</div>
+        <h3>Lighthouse Score</h3>
+        <p>Construído em Astro, entrega HTML estático puro. Sem plugin de cache. Sem PHP. O anúncio carrega rápido e o Google ranqueia mais.</p>
+      </div>
+      <div class="diff-card">
+        <div class="d-num">2x</div>
+        <h3>Mercados simultâneos</h3>
+        <p>Arquitetura bilíngue com hreflang correto. PT-BR para o Brasil, EN para o mercado americano. Sem duplicate content, sem perda de autoridade.</p>
+      </div>
+      <div class="diff-card">
+        <div class="d-num">8-10</div>
+        <h3>Artigos por semana</h3>
+        <p>Workflow de IA com revisão humana. Produção em escala sem perder qualidade editorial, com o volume necessário para crescimento consistente.</p>
+      </div>
+      <div class="diff-card">
+        <div class="d-num">3</div>
+        <h3>Streams de receita</h3>
+        <p>AdSense como base, afiliados para margem e newsletter para ativos de lista. Sem depender de uma única fonte de monetização.</p>
+      </div>
+      <div class="diff-card">
+        <div class="d-num">5d</div>
+        <h3>Indexação ativa</h3>
+        <p>Integração com Google Search Console API. Cada artigo publicado notifica o Google automaticamente e é indexado em 2 a 5 dias, não 8 semanas.</p>
+      </div>
+      <div class="diff-card">
+        <div class="d-num">50x</div>
+        <h3>Valor de revenda</h3>
+        <p>Blogs com 100k visitas/mês valem 30 a 50x a receita mensal no mercado de M&A de sites. É um ativo com valor real de mercado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SLIDE 5: COMPARATIVO ── -->
+<section class="slide" id="s5">
+  <span class="brand-tag">@seocompaulo</span>
+  <span class="slide-num">05 / 08</span>
+
+  <div style="max-width: 880px; width: 100%;">
+    <span class="label fade-in">Comparativo</span>
+    <h2 class="display fade-in" style="font-size: clamp(36px, 5vw, 56px); margin-bottom: 12px;">Astro vs WordPress<br>para <span style="color: var(--green);">AdSense</span>.</h2>
+
+    <div class="compare-wrapper fade-in">
+      <table>
+        <thead>
+          <tr>
+            <th>Critério</th>
+            <th>WordPress</th>
+            <th class="highlight">Astro (este projeto)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Velocidade de carregamento</td>
+            <td class="bad">Lento (JS pesado, PHP dinâmico)</td>
+            <td class="good">HTML estático puro</td>
+          </tr>
+          <tr>
+            <td>Lighthouse / Core Web Vitals</td>
+            <td class="bad">60 a 80 com otimização</td>
+            <td class="good">100 por arquitetura</td>
+          </tr>
+          <tr>
+            <td>Custo de hospedagem</td>
+            <td class="bad">R$ 50 a 300/mês mais manutenção</td>
+            <td class="good">Zero (Cloudflare Pages)</td>
+          </tr>
+          <tr>
+            <td>Segurança</td>
+            <td class="bad">Vulnerável a plugins</td>
+            <td class="good">Sem servidor, sem ataque</td>
+          </tr>
+          <tr>
+            <td>RPM de anúncios</td>
+            <td class="bad">Prejudicado por lentidão</td>
+            <td class="good">Máximo com viewability alta</td>
+          </tr>
+          <tr>
+            <td>Suporte bilíngue</td>
+            <td class="bad">Plugin pago necessário</td>
+            <td class="good">Nativo, zero fricção</td>
+          </tr>
+          <tr>
+            <td>Escalabilidade de conteúdo</td>
+            <td class="bad">Lentidão aumenta com volume</td>
+            <td class="good">Estático e infinito</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="scroll-hint-table">deslize para ver &rarr;</p>
+  </div>
+</section>
+
+<!-- ── SLIDE 6: ROADMAP ── -->
+<section class="slide" id="s6">
+  <span class="brand-tag">@seocompaulo</span>
+  <span class="slide-num">06 / 08</span>
+
+  <div style="max-width: 760px; width: 100%;">
+    <span class="label fade-in">Cronograma</span>
+    <h2 class="display fade-in" style="font-size: clamp(36px, 5vw, 56px); margin-bottom: 12px;">De zero a<br><span style="color: var(--green);">100k</span> visitas/mês.</h2>
+
+    <div class="roadmap fade-in">
+      <div class="rm-step active">
+        <div class="rm-dot">F1</div>
+        <div class="rm-content">
+          <span class="rm-period">Meses 1 a 3</span>
+          <h3>Fundação técnica e editorial</h3>
+          <p>Setup completo: Astro + CMS + GSC + Analytics. Pesquisa de keywords de baixa concorrência. Os primeiros 20 a 40 artigos são produzidos e publicados por mim, garantindo a base de qualidade e autoridade do blog. Silos definidos e estrutura pronta para escalar.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-dot">F2</div>
+        <div class="rm-content">
+          <span class="rm-period">Meses 4 a 6</span>
+          <h3>Escala de conteúdo</h3>
+          <p>A partir daqui, a produção passa para o seu time com o workflow de IA já configurado e pronto para uso: 8 a 10 artigos por semana. Internal linking sistemático. Primeiros backlinks. Otimização de artigos em posição 6 a 15. AdSense: R$300 a R$800/mês.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-dot">F3</div>
+        <div class="rm-content">
+          <span class="rm-period">Meses 7 a 10</span>
+          <h3>Monetização acelerada</h3>
+          <p>Afiliados ativados. Versão EN crescendo. Email list com lead magnets. Digital PR para backlinks editoriais. AdSense: R$1.500 a R$4.000/mês.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-dot">F4</div>
+        <div class="rm-content">
+          <span class="rm-period">Meses 11 a 12</span>
+          <h3>Ativo consolidado</h3>
+          <p>50 a 100k visitas/mês. Multiplex Ads. Newsletter monetizada. Possibilidade de expansão para terceiro nicho. Receita: R$6.000 a R$15.000/mês.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SLIDE 7: INVESTIMENTO ── -->
+<section class="slide" id="s7">
+  <span class="brand-tag">@seocompaulo</span>
+  <span class="slide-num">07 / 08</span>
+
+  <div style="max-width: 900px; width: 100%;">
+    <span class="label fade-in">Investimento</span>
+    <h2 class="display fade-in" style="font-size: clamp(36px, 5vw, 56px); margin-bottom: 32px;">Simples e<br><span style="color: var(--green);">transparente</span>.</h2>
+
+    <div class="invest-wrap fade-in">
+      <div class="invest-main">
+        <span class="invest-tag">Setup completo</span>
+        <div class="price-big">R$ 5.000</div>
+        <p class="price-label">Pagamento único. Entrega dos 2 blogs em 10 dias úteis por blog.</p>
+        <ul class="invest-includes">
+          <li><span class="check">✓</span>Configuração técnica completa (Astro + CMS + GSC)</li>
+          <li><span class="check">✓</span>Arquitetura bilíngue PT-BR + EN</li>
+          <li><span class="check">✓</span>Silos de conteúdo definidos e estruturados</li>
+          <li><span class="check">✓</span>Workflow de IA configurado e documentado para sua equipe</li>
+          <li><span class="check">✓</span>Painel administrativo com 3 presets de layout</li>
+          <li><span class="check">✓</span>Integração com Google Search Console API</li>
+          <li><span class="check">✓</span>Hospedagem gratuita (Cloudflare Pages)</li>
+          <li><span class="check">✓</span>20 a 40 primeiros artigos publicados por mim</li>
+        </ul>
+      </div>
+
+      <div class="optional-card">
+        <span class="opt-tag">Opcional</span>
+        <div class="opt-price">R$ 500</div>
+        <p class="opt-period">por mês. Manutenção contínua.</p>
+        <ul class="opt-list">
+          <li>Monitoramento semanal de indexação e GSC</li>
+          <li>Relatório mensal de performance e tráfego</li>
+          <li>Otimização de artigos com base nos dados</li>
+          <li>Suporte técnico para atualizações</li>
+          <li>Ajustes de layout e slots de anúncio</li>
+        </ul>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 20px; line-height: 1.5;">Ideal para quem quer foco no conteúdo sem se preocupar com a parte técnica. Pode ser ativado a qualquer momento após o setup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SLIDE 8: FECHAMENTO ── -->
+<section class="slide" id="s8">
+  <span class="brand-tag">@seocompaulo</span>
+  <span class="slide-num">08 / 08</span>
+  <div class="close-blob"></div>
+
+  <div style="position: relative; z-index: 1;">
+    <h2 class="display big-cta fade-in">Pronto para<br>construir um ativo<br><span style="color: var(--green);">real?</span></h2>
+    <p class="cta-sub fade-in">A janela para nichos de baixa concorrência fecha com o tempo. Quanto antes, mais fácil chegar na primeira página.</p>
+    <div class="contact-box fade-in">
+      <div class="dot"></div>
+      <span>@seocompaulo</span>
+    </div>
+  </div>
+
+  <span class="footer-sig">Proposta preparada exclusivamente para Mateus Moreira · 2026</span>
+</section>
+
+<script>
+  // Scroll to slide
+  function scrollToSlide(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Nav dots
+  const slides = ['s1','s2','s3','s4','s5','s6','s7','s8'];
+  const dots = document.querySelectorAll('.nav-dot');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = slides.indexOf(entry.target.id);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  // Fade in on scroll
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  fadeEls.forEach(el => fadeObs.observe(el));
+
+  // First slide auto-visible
+  document.querySelectorAll('#s1 .fade-in').forEach(el => {
+    setTimeout(() => el.classList.add('visible'), 100);
+  });
+</script>
+
+</body>
+</html>
